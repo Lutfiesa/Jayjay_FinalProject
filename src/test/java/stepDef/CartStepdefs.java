@@ -7,12 +7,12 @@ import io.cucumber.java.en.When;
 import pages.HomePage;
 import pages.LoginPage;
 
-public class AddCartStepdefs {
+public class CartStepdefs {
 
     LoginPage loginPage;
     HomePage homePage;
 
-    public AddCartStepdefs() {
+    public CartStepdefs() {
         this.loginPage = new LoginPage();
         this.homePage = new HomePage();
     }

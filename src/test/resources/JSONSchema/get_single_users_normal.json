@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "firstName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lastName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "picture": {
+      "type": "string",
+      "minLength": 1
+    },
+    "gender": {
+      "type": "string",
+      "minLength": 1
+    },
+    "email": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dateOfBirth": {
+      "type": "string",
+      "minLength": 1
+    },
+    "phone": {
+      "type": "string",
+      "minLength": 1
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "street": {
+          "type": "string",
+          "minLength": 1
+        },
+        "city": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "country": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "street",
+        "city",
+        "state",
+        "country",
+        "timezone"
+      ]
+    },
+    "registerDate": {
+      "type": "string",
+      "minLength": 1
+    },
+    "updatedDate": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "firstName",
+    "lastName",
+    "picture",
+    "gender",
+    "email",
+    "dateOfBirth",
+    "phone",
+    "location",
+    "registerDate",
+    "updatedDate"
+  ]
+}
