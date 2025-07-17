@@ -1,0 +1,58 @@
+name: Selenium Web Automation
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  Run-Automation_SeleniumWeb:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    #Downlaod Repo
+    - uses: actions/checkout@v4
+
+    #Setup java
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    #Install Browser
+    - name: Setup Chrome
+      uses: browser-actions/setup-chrome@v1.7.3   
+
+    #Setup Gradlew 
+    - name: Setup Gradle
+      run: chmod +x gradlew
+
+    #Execute Test
+    - name: Execute Test
+      run: ./gradlew cucumber
+
+    #Archive Test Result
+    - name: Archive Test Result
+      uses: actions/upload-artifact@v4.6.2
+      if: always()
+      with:
+        name: Cucumber Web Report
+        path: reports
+
+    #Deploy to Github Page
+    - name: GitHub Pages action
+      if: always()
+      uses: peaceiris/actions-gh-pages@v4.0.0
+      with:
+        personal_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: reports
+
+    
